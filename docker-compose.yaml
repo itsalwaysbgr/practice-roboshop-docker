@@ -1,13 +1,13 @@
 networks:
-  defaut: 
+  default: 
     driver: bridge
     name: roboshop
 services:
   mongodb:
     image: joindevops/mongodb:v1
-    contianer_name: mongodb
+    container_name: mongodb
   catalogue:
-    iamge: joindevops/catalogue:v1
+    image: joindevops/catalogue:v1
     container_name: catalogue
   reids:
     image: redis:7.0
