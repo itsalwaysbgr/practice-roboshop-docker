@@ -9,7 +9,7 @@ services:
   catalogue:
     image: joindevops/catalogue:v1
     container_name: catalogue
-  reids:
+  redis:
     image: redis:7.0
     container_name: redis
   user:
