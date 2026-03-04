@@ -1,0 +1,36 @@
+networks:
+  defaut: 
+    driver: bridge
+    name: roboshop
+services:
+  mongodb:
+    image: joindevops/mongodb:v1
+    contianer_name: mongodb
+  catalogue:
+    iamge: joindevops/catalogue:v1
+    container_name: catalogue
+  reids:
+    image: redis:7.0
+    container_name: redis
+  user:
+    image: joindevops/user:v1
+    container_name: user
+    depends_on:
+    - redis
+    - mongodb
+  cart:
+    image:: joindevops/cart:v1
+    container_name: cart
+    depends_on:
+    - catalogue
+    - redis
+  mysql:
+    image: joindevops/mysql:v1
+    container_name: mysql
+  shipping:
+    image: joindevops/shipping:v1
+    container_name: shipping
+    depends_on:
+    - mysql
+    - cart
+    
